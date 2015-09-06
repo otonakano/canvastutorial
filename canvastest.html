@@ -6,6 +6,22 @@
         var canvas = document.getElementById('tutorial');
         if (canvas.getContext){
           var ctx = canvas.getContext('2d');
+         //全体の透明度
+         ctx.globalAlpha = 0.3;
+         //処理を500回繰り返す
+         for(i = 0; i < 1000; i++){
+           ctx.beginPath();
+         //ランダムな色を生成
+           var r = Math.floor(Math.random() * 256);
+           var g = Math.floor(Math.random() * 256);
+           var b = Math.floor(Math.random() * 256);
+           ctx.strokeStyle = 'rbg(' + r + ',' + g + ',' + b + ')';
+         //始点をランダムに生成
+           ctx.moveTo(Math.random()*600, Math.random()*600);
+         //ランダムに線を生成
+           ctx.lineTo(Math.random()*600, Math.random()*600);
+           ctx.stroke();
+         }
         }
       }
     </script>
@@ -14,6 +30,6 @@
     </style>
   </head>
   <body onload="draw();">
-    <canvas id="tutorial" width="400" height="300"></canvas>
+    <canvas id="tutorial" width="600" height="600"></canvas>
   </body>
 </html>
